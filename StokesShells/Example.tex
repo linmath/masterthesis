@@ -1,0 +1,42 @@
+\begin{ex}
+Let $C =\{r,-r,z,-z\} \subseteq \C^\times$ with $r \in \R_{>0}$ and $z \in \C \smallsetminus \R$ \textcolor{blue}{($z = 1+i$)}. First, let us give a precise description of the sets defined in (\ref{MochiNotation}):
+\begin{itemize}
+    \item $S_0(C) = \St(0,r) \cup \St(0,z) = \{\frac{\pi}{4}+ \nu \frac{\pi}{2}\mid \nu \in \Z /4\Z\} \cup \{\frac{\pi+ 2\arg(z)}{4}+ \nu\frac{\pi}{2}\mid \nu \in \Z/4\Z\}$ \textcolor{blue}{$=\{\frac{\pi}{4},\frac{3\pi}{4},\frac{5\pi}{4},\frac{7\pi}{4} \} \cup \{\frac{3\pi}{8},\frac{7\pi}{8},\frac{11\pi}{8},\frac{15\pi}{8}\}$},
+    \item Setting $I_r^{(\nu)} \coloneqq (\frac{\pi}{4} + \nu\frac{\pi}{2}, \frac{\pi}{4}+(\nu+1)\frac{\pi}{2})$ and $I_z^{(\nu)} \coloneqq (\frac{\pi+ 2 \arg(z)}{4}+ \nu\frac{\pi}{2}, \frac{\pi+ 2 \arg(z)}{4}+(\nu+1)\frac{\pi}{2})$, we have 
+    $T(C) = \{I_r^{(\nu)} \mid \nu \in \Z/4\Z\} \cup \{I_z^{(\nu)} \mid \nu \in \Z/4\Z\}$ \textcolor{blue}{$=\{(\frac{\pi}{4},\frac{3\pi}{4}),(\frac{3\pi}{4},\frac{5\pi}{4}),(\frac{5\pi}{4},\frac{7\pi}{4})\} \cup \{(\frac{3\pi}{8},\frac{7\pi}{8}),(\frac{7\pi}{8},\frac{11\pi}{8}),(\frac{11\pi}{8},\frac{15\pi}{8}),(\frac{15\pi}{8},\frac{19\pi}{8})\}$},
+    \item $\Ac(C) = \bigcup_{\nu \in \Z/4\Z} \{(r, I_r^{(\nu)}),(-r, I_r^{(\nu)}),(z, I_z^{(\nu)}),(-z,I_z^{(\nu)})\}$,
+    \item Elements of $T_2(C)$ are of the form $(I_{c_1}^{(\nu_1)}, I_{c_2}^{(\nu_2)})$ with $c_1 \neq c_2$ and $c_1 \neq -c_2$. \textcolor{red}{Abhängig vom Winkel $\arg(z)$, aber jedes Intervall hat zwei Intervalle von der anderen "Art (r/z)" mit denen es sich schneidet; In unserem Fall sind das $8 \cdot 2=16$ Paare.}
+    \textcolor{blue}{$\{(I_r^{(\nu)}, I_z^{(\nu)}), (I_z^{(\nu)}, I_r^{(\nu)}),(I_r^{(\nu+1)}, I_z^{(\nu)}),(I_z^{(\nu)}, I_r^{(\nu+1)})\mid \nu \in \Z/4\Z\}$}
+    \item for $I_c^{(\nu)} \in T(C)$, $c \in \{r, z\}$ we get
+    \begin{itemize}
+        \item $\nu \in \{0,2\}$: $C_{I_c^{(\nu)}, >0} = \{c\}$ and $C_{I_c^{(\nu)}, <0} = \{-c\}$,
+        \item $\nu \in \{1,3\}$: $C_{I_c^{(\nu)}, >0} = \{-c\}$ and $C_{I_c^{(\nu)}, <0} = \{c\}$
+    \end{itemize}
+    and therefore $\B_2(C) = \{(c,-c,I_c^{(0)}), (c,-c, I_c^{(2)}), (-c,c,I_c^{(1)}), (-c,c,I_c^{(3)}) \mid c \in \{r,z\}\}$.
+\end{itemize}
+Now let $(\gr \Lo, \gr \Lo_{\leq \bullet})$ be a graded Stokes filtered local system of Gaussian type $C$. Then a deformation datum for $(\gr \Lo, \gr \Lo_{\leq \bullet})$ consists of 
+\begin{itemize}
+    \item \textcolor{red}{Wie kann man das hier präzisiseren, wenn man $T(C)$ nicht explizit aufschreiben kann?}
+    \textcolor{blue}{
+    \begin{itemize}
+        \item For $\nu \in \{0,2\}$: 
+        \begin{itemize}
+            \item $\Rc_{I_z^{(\nu)}}^{I_r^{(\nu)}}: K_{r,I^{(\nu)}_r} \to K_{-z,I^{(\nu)}_z}$,
+            \item $\Rc_{I_r^{(\nu)}}^{I_z^{(\nu)}}: K_{z,I^{(\nu)}_z} \to K_{-r,I^{(\nu)}_r}$,
+            \item $\Rc_{I_z^{(\nu-1)}}^{I_r^{(\nu)}}: K_{r,I^{(\nu)}_z} \to K_{z,I^{(\nu-1)}_r}$,
+            \item $\Rc_{I_r^{(\nu+1)}}^{I_z^{(\nu)}}: K_{z,I^{(\nu)}_z} \to K_{r,I^{(\nu+1)}_r}$
+        \end{itemize}
+        \item For $\nu \in \{1,3\}$:
+        \begin{itemize}
+            \item $\Rc_{I_z^{(\nu)}}^{I_r^{(\nu)}}: K_{-r,I^{(\nu)}_r} \to K_{z,I^{(\nu)}_z}$,
+            \item $\Rc_{I_r^{(\nu)}}^{I_z^{(\nu)}}: K_{-z,I^{(\nu)}_z} \to K_{r,I^{(\nu)}_r}$,
+            \item $\Rc_{I_z^{(\nu-1)}}^{I_r^{(\nu)}}: K_{-r,I^{(\nu)}_r} \to K_{-z,I^{(\nu-1)}_z}$,
+            \item $\Rc_{I_r^{(\nu+1)}}^{I_z^{(\nu)}}: K_{-z,I^{(\nu)}_z} \to K_{-r,I^{(\nu+1)}_r}$
+        \end{itemize}
+    \end{itemize}}
+    \item a morphism $\Rc_{-c,I_+}^{c,I_-}: K_{c,I} \to K_{-c,I}$ for each $c \in \{r,z\}$ and $I \in \{I_c^{(0)}, I_c^{(2)}\}$ and a morphism $\Rc_{c,I_+}^{-c,I_-}: K_{-c,I} \to K_{c,I}$ for each $c \in \{r,z\}$ and $I \in \{I_c^{(1)}, I_c^{(3)}\}$.
+\end{itemize}
+\textcolor{gray}{Man hat also $34$ Morphismen in diesem Fall.}
+\textcolor{Orange}{Wenn wir $C$ noch weiter vereinfachen (indem wir $C= \{r,z\}$ betrachten und "händisch" $-r,-z$ hinzufügen) dann ist $\gr_{-c}\Lo = 0$ und folglich sind einige der Vektorräume oben gleich 0. Wird dann also nochmal deutlich leichter. Insbesondere ist das Deformation Datum von $\B_2(C)$ ist dann trivial.}
+
+\end{ex}

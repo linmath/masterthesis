@@ -1,0 +1,196 @@
+\chapter{Stokes shells of Gaussian type}
+
+In this chapter we introduce the notion of Stokes shells of Gaussian type, which provides another approach to describe Stokes structures. For this purpose, we specify the content of chapter 4 in \cite{mochistokes} to fit our context. 
+
+\section{Stokes tuples of vector spaces}
+Our initial move towards defining the category of Stokes Shells involves introducing Stokes tuples of vector spaces and establishing a connection with chapter three. We will discover that every graded Stokes filtered local system corresponds to a Stokes tuple of vector spaces.
+
+\begin{nota}
+Let $C \subseteq \C$ be a non-empty, finite subset and $C^\times \coloneqq C \smallsetminus \{0\}$. We set 
+\[
+S_0(C) \coloneqq \bigcup_{c \in C^\times}\St(0,c) ~ \text{ and } ~ T(C) \coloneqq \bigcup_{c \in C^\times}T(0,c),
+\]
+
+where $T(0,c)$ is the set of connected components of $S^1 \smallsetminus \St(0,c)$ as explained in (\ref{connected components}).
+
+\begin{comment}
+    \textcolor{red}{warum lässt man die negativen $\lambda$ weg?} \textcolor{purple}{Man hat dann zwar nicht zwangsläufig $\arg(c_1) = \arg(c_2)$ aber $\arg(c_1) \in \{\arg(c_2), \arg(c_2)+\pi\}$ und die haben die selben Stokes-Richtungen. Beachte auch, dass für $a = \lambda b$ nicht $\St(a,c)= \St(b,c)$ für allgemeines $c \in \C$ gilt.} \textcolor{blue}{Weil für die negativen $\lambda$ nicht mehr $S^1_{c<0} = S^1_{\lambda c < 0}$ sondern die umgedrehte Ungleichung $S^1_{c<0}= S_{0<\lambda c}^1$ gilt.}
+\end{comment}
+
+On $\C$ we define an equivalence relation setting $c_1 \sim c_2$ for $c_1,c_2 \in \C$ if there exists a $\lambda \in \R_{>0}$ with $c_1 = \lambda c_2$. For a subset $C \subseteq \C$ we define $[C]$ to be the quotient of $C$ with respect to $\sim$ and $-C \coloneqq \{-c \mid c \in C\} \subseteq \C$.
+\end{nota}
+
+
+
+\begin{ass}\label{assumption} In this study, our focus is solely on the non-aligned scenario, meaning we postulate that $C \cong [C]$. Moreover we suppose $C = C^\times$. To simplify matters, we can assume  without loss of generality that $C = -C$ by including absent elements if needed.
+\end{ass}
+
+
+\begin{nota}\label{MochiNotation} Let $C \subseteq \C$ be a non-empty finite subset as in (\ref{assumption}).
+    We apply the notation of \cite{mochistokes} to our context and get:
+\begin{itemize}
+    \item $\Ac(C) \coloneqq \coprod_{c \in [C^\times]} \{(c, I) \mid I \in T(0,c)\}$,
+    \item for any open interval $I=(\theta_0,\theta_1) \subseteq \R/2\pi\Z$ we set $\overline{I}\coloneqq [\theta_0,\theta_1] \subseteq \R/2\pi\Z$ and  
+    \item for any open interval $I =(\theta_0, \theta_1) \subseteq \R/2\pi\Z$ and any $r \in \R$ we set $I+r=(\theta_0+r, \theta_1+r)\subseteq \R/2\pi\Z$.
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% WAHRSCHEINLICH IRRELEVANT %%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+    \item \textcolor{gray}{Moreover we set $\theta^I_\ell \coloneqq \theta_0$, $\theta^I_r \coloneqq \theta_1$ and $\theta^I_m \coloneqq \frac{\theta_1-\theta_0}{2}$}.
+    \item \textcolor{gray}{for $I_1, I_2 \in T(C)$ we write $I_1 \vdash I_2$ if $\theta_\ell^{I_1} < \theta_\ell^{I_2}$ and $(\theta_\ell^{I_1}, \theta_\ell^{I_2}) \cap S_0(C) = \varnothing$} \textcolor{red}{Falls wir das brauchen muss "<" noch besser spezifiziert werden (als Relation in $\R/2\pi\Z$).}
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{nota}
+
+Now we can come to the definition of Stokes tuples of $\k$-vector spaces.
+
+\begin{defi}\label{StokesTuple}
+    Let $C \subseteq \C$ be a non-empty, finite subset as in (\ref{assumption}). A \emph{Stokes tuple of $\k$-vector spaces of Gaussian type} over $C$ is a tuple $(\K, \mathbf{\Phi}, \mathbf{\Psi})$ where
+    \begin{itemize}
+        \item $\K = (K_{c,I})_{(c,I) \in \Ac(C)}$ is a tuple of $\k$-vector spaces and
+        \item $\mathbf{\Phi} = (\Phi_c^{I+\frac{\pi}{2}, I}:K_{c,I} \to K_{c, I+\frac{\pi}{2}})_{(c,I) \in \Ac(C)}$, $\mathbf{\Psi} = (\Psi_{c,I}: K_{c,I} \to K_{c,I})_{(c,I) \in \Ac(C)}$ denote tuples of isomorphisms so that the diagram
+    \[
+        \begin{tikzcd}[row sep=1.5cm, column sep=2cm]
+         & K_{c,I} \arrow[d, swap, "\Phi_{c}^{I+\frac{\pi}{2},I}"] \arrow[r, "\Psi_{c,I}"] & K_{c,I} \arrow[d, "\Phi_{c}^{I+\frac{\pi}{2},I}"] & \\
+        & K_{c,I+\frac{\pi}{2}} \arrow[r, swap, "\Psi_{c,I+\frac{\pi}{2}}"] &  K_{c,I+\frac{\pi}{2}} & 
+        \end{tikzcd}
+    \]
+    commutes for any $(c,I) \in \Ac(C)$.
+\end{itemize}
+\end{defi}
+
+\begin{rem} From lemma (\ref{StokesDirections}) we get that if $(c, I)$ is an element in $\Ac(C)$, then also $(c, I+\frac{\pi}{2}) \in \Ac(C)$ since $I\in T(0,c)$ takes the form $(\theta, \theta + \frac{\pi}{2})$ for some $\theta \in \St(0,c)$ and if $\theta \in \St(0,c)$, then also $\theta + \nu \frac{\pi}{2} \mod 2\pi \in \St(0,c)$ for $\nu \in \Z/4\Z$. Thus, $\bm\Phi$ in (\ref{StokesTuple}) is well-defined.
+\end{rem}
+
+Next, we will observe that every graded Stokes filtered local system can be viewed as a Stokes tuple of $\k$-vector spaces.
+
+\begin{lem}\label{gradedtotupel}
+    Let $C \subseteq \C$ be a non-empty, finite subset as in (\ref{assumption}). Then every graded Stokes filtered local system of Gaussian type $(\gr\Lo,\gr\Lo_{\leq \bullet})$ induces a Stokes tuple of $\k$-vector spaces. We denote the associated Stokes tuple by $\mathfrak{D}((\gr\Lo,\gr\Lo_{\leq \bullet}))$.
+\end{lem}
+
+\begin{proof}
+Let $C \subseteq \C$ be a non-empty, finite subset as in $(\ref{assumption})$ and $(\gr\Lo, \gr\Lo_{\leq \bullet})$ be a graded Stokes filtered local System of Gaussian type $C$. Thus for each $c \in C$ there is a local system $\gr_c\Lo$ on $S^1$ so that
+\[
+\gr\Lo = \bigoplus_{c \in C} \gr_c\Lo
+\]
+and for each $c' \in \C$ the subsheaf $\gr\Lo_{\leq c'}$ of $\gr\Lo$ is given by
+\[\gr\Lo_{\leq c'} = \bigoplus_{c \in C} \beta_{c\leq c'}(\gr_c \Lo).\]
+
+For each $c \in C$, an interval $I \in T(0,c)$ is of the form $(\theta_{\nu}, \theta_{\nu+1})$ with $\theta_{\nu} \in \St(0,c)$ and $\theta_{\nu+1} = \theta_\nu +\frac{\pi}{2}$. We set $I^{(\nu)} \coloneqq (\theta_{\nu}, \theta_{\nu+1})$.
+
+For each $(c,I^{(\nu)}) \in \Ac(C)$ we get a $\k$-vector space \[K_{c,I^{(\nu)}} \coloneqq H^0\left(\overline{I^{(\nu)}},\iota^{-1}(\gr_c\Lo)\right)\cong \iota^{-1}(\gr_c\Lo)(\overline{I^{(\nu)}}),\] where $\iota^{-1}$ is the inverse image functor of the inclusion $\iota: \overline{I^{(\nu)}} \xhookrightarrow{} S^1$. We abbreviate $\iota^{-1}(\gr_c\Lo)(\overline{I^{(\nu)}})$ with $\gr_c\Lo(\overline{I^{(\nu)}})$.
+
+Since $\gr_c\Lo$ is a local system on $S^1$ and $\overline{I^{(\nu)}}$ is simply connected, we get $\gr_c\Lo(\overline{I^{(\nu)}}) \cong \gr_c\Lo_{\theta^{(\nu +1)}} \cong \gr_c\Lo(\overline{I^{(\nu+1)}})$, hence for each $(c, I^{(\nu)}), (c,I^{(\nu+1)}) \in \Ac(C)$ we obtain an isomorphism 
+\[
+    \Phi_c^{(\nu+1,\nu)}\coloneqq \Phi_c^{I^{(\nu)}+\frac{\pi}{2},I^{(\nu)}}:K_{c, I^{(\nu)}} \to K_{c,I^{(\nu+1)}}.
+\] 
+Moreover for each $(c, I^{(\nu)}) \in \Ac(C)$ we define $\Psi_{c,I^{(\nu)}}$ to be the identity on $K_{c,I^{(\nu)}}$:
+\[
+\Psi_{c,I^{(\nu)}}\coloneqq \id_{K_{c,I^{(\nu)}}} \in \Hom_{\Vect_\k}(K_{c,I^{(\nu)}},K_{c,I^{(\nu)}}).
+\]
+
+
+Then $(\K,\bm\Phi,\bm\Psi)$ given by the tuples $\K \coloneqq (K_{c,I})_{(c,I) \in \Ac(C)}$, $\bm\Phi \coloneqq (\Phi_c^{\nu+1,\nu})_{(c,I^{(\nu)}) \in \Ac(C)}$ and $\bm\Psi \coloneqq (\Psi_{c,I})_{(c,I) \in \Ac(C)}$ is a Stokes tuple of $\k$-vector spaces of Gaussian type. 
+
+We set $\mathfrak{D}((\gr\Lo, \gr\Lo_{\leq \bullet})) \coloneqq (\K, \bm{\Phi},\bm{\Psi})$.
+\end{proof}
+
+
+\section{Stokes shells}
+
+Having learned about Stokes tuples of $\k$-vector spaces we can take the next step and give the definition of a deformation datum of a graded Stokes filtered local system that is of Gaussian type $C$. This is essential to finally get to the formal definition of a Stokes shell. In order to do so, we have to give some more notation.
+\newline
+
+
+Let $C\subseteq \C$ be a non-empty, finite subset. For an element $I \in T(C)$ we define
+\begin{itemize}
+\item $C_{I, <0} \coloneqq \{c \in C \mid c<_{\theta} 0 \text{ for all } \theta \in I\}$ and 
+\item $C_{I, >0} \coloneqq \{c \in C \mid 0<_{\theta} c \text{ for all } \theta \in I\}$.
+\end{itemize}
+
+\begin{lem}
+Let $C \subseteq \C$ be a non-empty, finite subset with $[C] = [-C]$. Then
+    for each $I \in T(C)$ the sets $[C_{I,<0}]$ and $[C_{I,>0}]$ consist of exactly one element.
+\end{lem}
+\begin{proof}
+Let $I \in T(C)$ be any interval. First we prove that both $[C_{I,<0}]$ and $[C_{I,>0}]$ are non-empty. Since $I$ belongs to $T(C)$, it takes the form $(\theta, \theta + \frac{\pi}{2})$, where $\theta$ is in $ \St(0,c)$ for some element $c \in C^\times$. From (\ref{connected components}) we get that either $c\in C_{I, <0}$ or $c \in C_{I, >0}$. Given that $[C] = [-C]$, there exists a $d \in C$ and $\lambda \in \R_{>0}$ with $-c = \lambda d$. Thus $[-c]=[d]$. Now if $c \in C_{I,<0}$, then $0 <_{\theta} -c$ for all $\theta \in I$ and consequently $[d] \in [C_{I, >0}]$ and $[c] \in [C_{I,<0}]$. Analogously if $c \in C_{I, >0}$, then $[d] \in [C_{I,<0}]$ and $[c] \in [C_{I,>0}]$. Hence both sets $[C_{I,>0}]$ and $[C_{I,<0}]$ contain at least one element.
+
+Now consider $c_1,c_2 \in C_{I,>0}$ with $\arg(c_1), \arg(c_2) \in [0,2\pi)$. Then the Stokes directions of the pairs $(0, c_1)$ and $(0,c_2)$ have to be the same as $I$ has length $\frac{\pi}{2}$. Thus $\St(0,c_1) = \St(0,c_2)$, which can be expressed as \[\left\{\frac{\pi+2\arg(c_1)}{4} + \mathbb{Z}\cdot \frac{\pi}{2} \mod 2\pi\right\} = \left\{\frac{\pi+2\arg(c_2)}{4} + \mathbb{Z}\cdot \frac{\pi}{2} \mod 2\pi\right\}\] 
+using lemma (\ref{StokesDirections}). As a consequence, we get either $\arg(c_1) = \arg(c_2)$ or we get $\arg(c_1) = \arg(c_2) + \pi \mod 2\pi$. Since $c_1 \in C_{I,>0}$, for any direction $\theta \in I$ we have $0 <_{\theta}c_1$. By definition, this implies $\arg(c_1) - 2 \theta \in \left(\frac{\pi}{2}, \frac{3\pi}{2}\right) \mod 2 \pi.$ 
+
+If $\arg(c_1) = \arg(c_2) + \pi \mod 2\pi$, then $\arg(c_2) + \pi- 2 \theta \in \left(\frac{\pi}{2}, \frac{3\pi}{2}\right) \mod 2 \pi$. Consequently $\arg(c_2)- 2 \theta \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \mod 2 \pi$, which implies that $c_2 <_{\theta} 0$. Thus we have $c_2 \not\in C_{I,>0}$ contradicting the assumption that $c_2 \in C_{I,>0}$. Therefore $\arg(c_1) = \arg(c_2)$ and as a result $[c_1]= [c_2]$. 
+The proof that $[C_{I,<0}]$ contains at most one element follows a similar logic.
+\end{proof}
+
+\begin{nota}\label{c+,c-} Again we apply the notation of \cite{mochistokes} to the Gaussian case and a subset $C \subseteq \C$ as in (\ref{assumption}). We therefore set
+\begin{itemize}
+    \item $T_2(C) \coloneqq \{ (I_1, I_2) \mid I_1, I_2 \in T(C), I_1 \cap I_2 \neq \varnothing, I_1 \neq I_2\}$,
+    \item for any $I \in T(C)$, $c^I_+$ is the element in $C$ such that  $\{[c^{I}_{+}]\} = [C_{I,>0}]$ and $c^{I}_{-}$ is the element in $C$ such that $\{[c^{I}_{-}]\} = [C_{I,<0}]$ and
+    \item $\B_2(C) \coloneqq \{(c_+^I, c_-^I; I) \mid I \in T(C)\}$.
+\end{itemize}
+\end{nota}
+
+\begin{rem}
+    Since we only consider subsets $C \subseteq \C$ that hold the properties of (\ref{assumption}), in particular $C \cong [C]$, the elements $c_+^I, c_-^{I}$ in (\ref{c+,c-}) are well-defined. 
+\end{rem}
+
+Now we have the required notation to define the deformation datum.
+
+\begin{defi}\label{Defo} Let $(\gr\Lo, \gr\Lo_{\leq \bullet})$ be a graded Stokes filtered local system of Gaussian type $C$ and $\mathfrak{D}((\gr\Lo, \gr\Lo_{\leq \bullet})) = (\K, \bm{\Phi},\bm{\Psi})$ the corresponding Stokes tuple of $\k$-vector spaces of Gaussian type. A \emph{deformation datum} of $(\gr\Lo, \gr\Lo_{\leq \bullet})$ is a tuple of morphisms $\Defo$ containing 
+    \begin{itemize}
+        \item a morphism 
+        $\Rc_{I_2}^{I_1}: K_{c^{I_1}_+,I_1} \longrightarrow K_{c^{I_2}_-,I_2}$ for each pair $(I_1,I_2)\in T_2(C)$ and
+    
+    \item a morphism $ \Rc_{c_2, I_+}^{c_1, I_-}: K_{c_1, I} \longrightarrow K_{c_2, I}$
+        for each tuple $(c_1,c_2;I) \in \B_2(C)$.
+
+    \end{itemize}
+\end{defi}
+
+And finally we can define the category of Stokes shells.
+
+\begin{defi}\label{defShell} Let $C \subseteq \C^\times$ be a non-empty, finite subset with $C =-C$ and that only includes non-aligned elements, i.e.\ $C \cong [C]$.
+    A \emph{Stokes shell of Gaussian type $C$} is a graded Stokes filtered local system of Gaussian type $C$ $(\gr\Lo, \gr \Lo_{\leq \bullet})$ together with a deformation datum $\Defo$ of $(\gr\Lo, \gr\Lo_{\leq \bullet})$. We denote it by $\StSh =((\gr\Lo,\gr\Lo_{\leq \bullet}), \Defo)$.
+    
+    Let $(\StSh_i)_{i\in\{1,2\}} = (((\gr\Lo_i,\gr\Lo_{i,\leq \bullet}), \Defo_i))_{i \in \{1,2\}}$ be two Stokes shells of Gaussian type $C$. A morphism between two Stokes shells $\lambda: \StSh_1 \to \StSh_2$ is a morphism $\lambda \in \Hom_{\LocStgr(C)}((\gr\Lo_1,\gr\Lo_{1,\leq \bullet}), (\gr\Lo_2,\gr\Lo_{2,\leq \bullet}))$ that is compatible with the deformation datum, meaning
+    \begin{align*}
+        \lambda \circ (\Rc_1)^{I_2}_{I_1} & = (\Rc_2)^{I_2}_{I_1} \circ \lambda &\text{ for all } (I_1,I_2) \in T_2(C), \\
+        \lambda \circ (\Rc_1)^{c_1,I_-}_{c_2,I_+} & = (\Rc_2)^{c_1,I_-}_{c_2,I_+} \circ \lambda & \text{ for all }(c_1,c_2;I) \in \B_2(C).
+    \end{align*}
+    The category of Stokes shells of Gaussian type $C$ is denoted by $\SH(C)$.
+\end{defi}
+
+
+\begin{rem}
+    We shortly want to explain how 
+    \begin{align*}
+        \lambda \circ (\Rc_1)^{I_2}_{I_1} & = (\Rc_2)^{I_2}_{I_1} \circ \lambda &\text{ for all } (I_1,I_2) \in T_2(C), \\
+        \lambda \circ (\Rc_1)^{c_1,I_-}_{c_2,I_+} & = (\Rc_2)^{c_1,I_-}_{c_2,I_+} \circ \lambda & \text{ for all }(c_1,c_2;I) \in \B_2(C)
+    \end{align*}
+    in definition (\ref{defShell}) can be understood. Since $\lambda$ is a graded morphism of local systems on $S^1$, for any interval $I \subseteq S^1$ we get $\iota^{-1}(\lambda)(\overline{I}):\iota^{-1}(\gr\Lo)(\overline{I}) \to \iota^{-1}(\gr\tilde{\Lo})(\overline{I})$ where $\iota^{-1}$ is the inverse image functor of the embedding $\iota: \overline{I} \xhookrightarrow{} S^1$. Again we abbreviate $\iota^{-1}(\lambda)(\overline{I})$ with $\lambda(\overline{I})$. Then for $(I_1,I_2)\in T_2(C)$ we have to check that the diagram
+    \[
+        \begin{tikzcd}[row sep=1.5cm, column sep=2cm]
+         & \gr_{c_+^{I_1}}\Lo(\overline{I_1}) \arrow[d, swap, "(\Rc_1)_{I_2}^{I_1}"] \arrow[r, "\lambda(\overline{I_1})"] & \gr_{c_+^{I_1}}\tilde{\Lo}(\overline{I_1}) \arrow[d, "(\Rc_2)_{I_2}^{I_1}"]& \\
+        & \gr_{c_-^{I_2}}\Lo(\overline{I_2}) \arrow[r, swap, "\lambda(\overline{I_2})"] &  \gr_{c_-^{I_2}}\tilde{\Lo}(\overline{I_2})& 
+        \end{tikzcd}
+    \] 
+    commutes. Remark that $\lambda(\overline{I_1})$ and $\lambda(\overline{I_2})$ in the diagram are well-defined as $\lambda$ is graded. Furthermore for $(c_1,c_2;I) \in \B_2(C)$ we have to prove that 
+     \[
+        \begin{tikzcd}[row sep=1.5cm, column sep=2cm]
+         & \gr_{c_1}\Lo(\overline{I}) \arrow[d, swap, "(\Rc_1)_{c_2,I_+}^{c_1,I_-}"] \arrow[r, "\lambda(\overline{I})"] & \gr_{c_1}\tilde{\Lo}(\overline{I}) \arrow[d, "(\Rc_2)_{c_2,I_+}^{c_1,I_-}"]& \\
+        & \gr_{c_2}\Lo(\overline{I}) \arrow[r, swap, "\lambda(\overline{I})"] &  \gr_{c_2}\tilde{\Lo}(\overline{I})& 
+        \end{tikzcd}
+    \] 
+    is commutative. Again, since $\lambda$ is graded, $\lambda(\overline{I})$ as given in the diagram is well-defined.
+\end{rem}
+
+\begin{rem}
+    If $C$ is not equal to $-C$, set $\tilde{C} \coloneqq C \cup -C$. Then, the category $\SH(C)$ can be identified as the full subcategory of $\SH(\tilde{C})$, where the objects are tuples of the form $((\gr\Lo,\gr\Lo_{\leq \bullet}), \Defo)$ and $(\gr\Lo,\gr\Lo_{\leq \bullet})$ is a graded Stokes filtered local system of Gaussian type $C$.
+\end{rem}
+
+
+
+After having defined the category of Stokes shells $\SH(C)$, we want to establish an equivalence to the category of Stokes data in the following chapter.

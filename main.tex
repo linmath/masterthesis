@@ -1,0 +1,159 @@
+\documentclass[a4paper, 11pt, BCOR=10mm, headsepline, oneside, hidelinks]{scrbook}
+
+%\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathrsfs}
+\usepackage{mathtools}
+\usepackage[all]{xy}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{tikz-cd}
+\usepackage{mdframed}
+\usepackage{caption}
+
+
+
+\newcommand{\N}{\mathbb{N}} % \N natürliche Zahlen
+\newcommand{\Z}{\mathbb{Z}} % \Z ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}} % \Q rationale Zahlen
+\newcommand{\R}{\mathbb{R}} % \R reelle Zahlen
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\A}{\mathbb{A}} 
+\newcommand{\Dc}{\mathcal{D}} 
+\newcommand{\M}{\mathscr{M}} % D-Modul
+\newcommand{\F}{\mathscr{F}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\E}{\mathscr{E}}
+\newcommand{\Sh}{\mathbf{Sh}} % Kategorie der Garben
+\newcommand{\Lo}{\mathscr{L}} % local system
+\newcommand{\D}{\mathscr{D}}
+\newcommand{\T}{\mathscr{T}}
+\newcommand{\I}{\mathscr{I}}
+\newcommand{\AffVar}{\mathbf{AffVar}} %Kategorie der affinen varietäten
+\newcommand{\PreVar}{\mathbf{PreVar}}
+\newcommand{\RiSp}{\mathbf{rSp}}
+\newcommand{\Var}{\mathbf{Var}}
+\newcommand{\Loc}{\mathbf{Loc}}
+\newcommand{\Conn}{\mathbf{Conn}}
+\newcommand{\Mod}{\mathbf{Mod}_{\textrm{Gauß}}}
+\newcommand{\LocSt}{\mathbf{Loc}_{\textrm{St}}}
+\newcommand{\LocStgr}{\mathbf{Loc}_{\textrm{St}}^{\gr}}
+\newcommand{\Locpure}{\mathbf{Loc}_{\textrm{St}}^\star}
+\newcommand{\SD}{\mathfrak{SD}}
+\newcommand{\SDpure}{\mathfrak{SD}^\star}
+\newcommand{\PSh}{\mathbf{PSh}}
+\newcommand{\Vect}{\mathbf{Vect}}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\StSh}{\bm{\mathit{Sh}}}
+\newcommand{\SH}{\mathfrak{SH}}
+\newcommand{\Defo}{\bm{\mathit{R}}}
+\newcommand{\K}{\bm{\mathit{K}}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\P}{\mathbb{P}}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\H}{\mathscr{H}}
+\renewcommand{\O}{\mathscr{O}}
+\renewcommand{\k}{\mathbf{k}} %Körper
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\ima}{im}
+\DeclareMathOperator{\coim}{coim}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\res}{res}
+
+\setlength{\parindent}{0pt}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem*{erin}{Reminder}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem{ass}[thm]{Assumption}
+\newtheorem*{rem}{Remark}
+
+
+%\surroundwithmdframed[linewidth=1.5pt]{thm}
+%\surroundwithmdframed[linewidth=1.5pt]{lem}
+%\surroundwithmdframed[linewidth=1.5pt]{cor}
+%\surroundwithmdframed[linewidth=1.5pt]{prop}
+
+\surroundwithmdframed[linewidth=1.25pt, innertopmargin=0pt, innerbottommargin=11pt]{defi}
+
+
+
+
+
+
+\usepackage[backend=bibtex, style=numeric, sorting=nty]{biblatex}
+\addbibresource{references.bib}
+
+
+
+
+\usepackage{titling}
+\title{Stokes filtered local systems and Stokes shells}
+\author{Alina Erl}
+\date{Dezember 2023}
+
+
+\begin{document}
+
+\input{titlepage}
+
+
+
+\tableofcontents
+
+\newpage
+
+%\input{Chapter1_Basics/chapter1}
+%\input{Chapter2_SheafOfDifferentials/chapter2}
+
+\input{Introduction/Introduction}
+\input{Preliminary/preliminary}
+\input{GaussianType/GaussianType}
+\input{StokesShells/stokesshells}
+\input{StokesDaten&StokesShells/StokesDataStokesShells}
+
+\printbibliography
+
+\input{EidesstaatlicheErklaerung}
+
+\end{document}
